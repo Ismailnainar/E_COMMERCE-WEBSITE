@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>tabel</title>
+    <style>
+         body {
+            background: linear-gradient(to bottom right, #3498db, #2c3e50); /* Gradient background */
+            margin: 0;
+            padding: 0;
+        }
+    
+button{
+     width: 10%;
+     margin-top: 10rem;
+     margin-right: 20rem;
+    margin-right: -10px;
+     color:black;
+     font-size: 15px;
+     opacity: .7;
+     background: gray;
+     padding: 10px 30px;
+     border: none;
+     outline: none;
+     border-radius: 10px;
+     text-shadow: 2px 2px 4px rgba(255,255,255,0.2);
+     box-shadow: 3px 3px 5px rgba(31,38,135,.37);
+     border-left: 1px solid rgba(255,255,255,.3);
+     border-top: 1px solid rgba(255,255,255,.3);
+     
+ }
+ nav{
+    background: rgb(91, 215, 240);
+    height: 80px;
+    width: 100%;
+}
+label.logo{
+    color: white;
+    font-size: 35px;
+    line-height: 80px;
+    padding: 0 200px;
+    font-weight: bold;
+    
+
+}
+nav ul{
+    float: right;
+    margin-right: 150px;
+
+}
+nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 10px;
+}
+nav ul li a{
+    color: white;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius:3px ;
+    
+}
+a.active,a:hover{
+    background:blue;
+    transition: .5s;
+}
+.checkbtn{
+    font-size: 30px;
+    color: white;
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    
+
+}
+table {
+            width: 80%;
+            margin: 50px auto;
+            border-collapse: collapse;
+            text-align: left;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            color: white;
+        }
+
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+</style>
+</head>
+<body>
+    <nav>
+        <ul>
+        <label  class="logo">E_COMMERCE WEBSITE</label>
+        <li><a class="active" href="{{url_for('login')}}">HOME</a></li>
+        <li><a href="{{url_for('logout')}}">LOGOUT</a></li>
+        <li><a href="{{url_for('ADD')}}">ADD_STUDENT</a></li>
+        </ul>
+    </nav>
+    <table>
+        <tr>
+            <th>S1no</th>
+            <th>Name</th>
+            <th>Company_Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
+        {% for i in values %}
+        <tr>
+            <td>{{i[0]}}</td>
+            <td>{{i[1]}}</td>
+            <td>{{i[2]}}</td>
+            <td>{{i[3]}}</td>
+            <td>{{i[4]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    
+</body>
+</html>
